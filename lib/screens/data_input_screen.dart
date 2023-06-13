@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_time_wind_three/models/latitude_model.dart';
+import 'package:real_time_wind_three/models/location_arguments.dart';
 import 'package:real_time_wind_three/models/longitude_model.dart';
 import 'package:real_time_wind_three/models/temp_class.dart';
 import 'package:real_time_wind_three/models/wind_speed_class.dart';
@@ -126,7 +127,7 @@ class _DataInputScreenState extends State<DataInputScreen> {
                         ),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
-                        hintText: 'Enter Lon in - Dec Degree:',
+                        hintText: 'Enter Lon in ( - ) Dec Degree:',
                         hintStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontStyle: FontStyle.italic),
                       ),
                     ),
@@ -142,7 +143,7 @@ class _DataInputScreenState extends State<DataInputScreen> {
                               ToggleSwitch(
                                 borderColor: [Color(kLightestBlue)],
                                 borderWidth: 2.0,
-                                minWidth: 60.0,
+                                minWidth: 80.0,
                                 minHeight: 40.0,
                                 fontSize: 20.0,
                                 initialLabelIndex: 0,
@@ -172,7 +173,7 @@ class _DataInputScreenState extends State<DataInputScreen> {
                               ToggleSwitch(
                                 borderColor: [Color(kLightestBlue)],
                                 borderWidth: 2.0,
-                                minWidth: 60.0,
+                                minWidth: 80.0,
                                 minHeight: 40.0,
                                 fontSize: 20.0,
                                 initialLabelIndex: 0,
@@ -211,13 +212,16 @@ class _DataInputScreenState extends State<DataInputScreen> {
                         child: ElevatedButton(
                           style: kStyleElevatedButton,
                           onPressed: () {
-                            if (latitudeTextInputValue.text.isNotEmpty) {
-                              latitudeDataValue.setLatitudeValue = latitudeTextInputValue.text;
-                            }
-                            if (longitudeTextInputValue.text.isNotEmpty) {
-                              longitudeDataValue.setLongitudeValue = longitudeTextInputValue.text;
-                            }
-                            Navigator.pushNamed(context, ResultsScreen.id);
+                            List<String> tempList = [];
+                            tempList.add(latitudeTextInputValue.text);
+                            tempList.add(longitudeTextInputValue.text);
+                            // latitudeDataValue.setLatitudeValue = double.parse(latitudeTextInputValue.text);
+                            // longitudeDataValue.setLongitudeValue = double.parse(longitudeTextInputValue.text);
+                            // print('Inside of onPressed: getLatitudeValue${latitudeDataValue.getLatitudeValue}');
+                            // print('Inside of onPressed: getLongitudeValue${longitudeDataValue.getLongitudeValue}');
+                            Navigator.pushNamed(context, ResultsScreen.id,
+                                arguments: LocationArguments(latitudeTextInputValue.text, longitudeTextInputValue.text, 1, temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice));
                           },
                           child: const Text(
                             'Get Results',
@@ -232,13 +236,19 @@ class _DataInputScreenState extends State<DataInputScreen> {
                     ),
                   ),
                   // buttonSectionOne,
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Image.asset(
-                      'images/sailBoatBlackAndWhite.png',
-                      width: kLogoWidthValue,
-                      height: kLogoHeightValue,
-                      fit: BoxFit.fitHeight,
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      height: 300,
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Image.asset(
+                          'images/sailBoatBlackAndWhite.png',
+                          width: kLogoWidthValue,
+                          height: kLogoHeightValue,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
                     ),
                   ),
                 ],

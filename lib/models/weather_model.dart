@@ -14,21 +14,21 @@ class WeatherModel {
   static int tempChoice = 0;
   static int speedChoice = 0;
 
-  Future<dynamic> getLocationWeather() async {
-    /// await for methods that return future
-    // Location location = Location();
-    // await location.getCurrentLocation();
-    lat = latitudeDataValue.getLatitudeValue;
-    lon = longitudeDataValue.getLongitudeValue;
-
-    /// Get location data
-    ///&units=metric change the temperature metric
-    NetworkData networkHelper =
-        NetworkData('$weatherApiUrl?lat=${longitudeDataValue.getLongitudeValue}&lon=${longitudeDataValue.getLongitudeValue}&appid=$apiKey&units=imperial');
-    var tempApiValue = ('$weatherApiUrl?lat=${longitudeDataValue.getLongitudeValue}&lon=${longitudeDataValue.getLongitudeValue}&appid=$apiKey&units=imperial');
-    print('This is the API call: $tempApiValue');
-    var weatherData = await networkHelper.getData();
-    print('This is the weatherData in the WeatherModel Class: $weatherData');
-    return weatherData;
-  } //getLocationWeather
+  // Future<dynamic> getLocationWeather() async {
+  //   /// await for methods that return future
+  //   // Location location = Location();
+  //   // await location.getCurrentLocation();
+  //   lat = latitudeDataValue.getLatitudeValue.toString();
+  //   lon = longitudeDataValue.getLongitudeValue.toString();
+  //
+  //   /// Get location data
+  //   ///&units=metric change the temperature metric
+  //   NetworkData networkHelper =
+  //       NetworkData('$weatherApiUrl?lat=${longitudeDataValue.getLongitudeValue}&lon=${longitudeDataValue.getLongitudeValue}&appid=$apiKey&units=imperial');
+  //   var tempApiValue = ('$weatherApiUrl?lat=${longitudeDataValue.getLongitudeValue}&lon=${longitudeDataValue.getLongitudeValue}&appid=$apiKey&units=imperial');
+  //   print('This is the API call: $tempApiValue');
+  //   var weatherData = await networkHelper.getData();
+  //   print('This is the weatherData in the WeatherModel Class: $weatherData');
+  //   return weatherData;
+  // } //getLocationWeather
 } //class

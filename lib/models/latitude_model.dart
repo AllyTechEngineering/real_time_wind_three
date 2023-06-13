@@ -1,10 +1,10 @@
 class LatitudeDataValue {
-  late dynamic latitudeValue;
-  dynamic get getLatitudeValue {
+  late double latitudeValue = 0.0;
+  double get getLatitudeValue {
     return latitudeValue;
   } //get
 
-  set setLatitudeValue(dynamic value) {
+  set setLatitudeValue(double value) {
     latitudeValue = value;
   } //set
 } //class

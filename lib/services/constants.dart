@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const apiKey = 'cdc0b1434b7f3e27f4b1b498bd79fe2d';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
-const BoxDecoration styleBoxDecoration = (BoxDecoration(
+const BoxDecoration kStyleBoxDecoration = (BoxDecoration(
   gradient: LinearGradient(
     colors: [Color(kDarkestBlue), Color(kMediumBlue)],
   ),
@@ -33,14 +33,15 @@ final ButtonStyle kStyleElevatedButton = ElevatedButton.styleFrom(
   shadowColor: const Color(kLightestBlue),
   textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: kFontTypeForApp, color: Color(kWhiteHexValue)),
 );
-const double kContainerHeight = 110.0;
-const double kContainerFontHeight = 14.0;
+const double kContainerHeight = 75.0;
+const double kContainerFontHeight = 20.0;
 const double kAppBarFontHeight = 20.0;
 const String kFontTypeForApp = 'Roboto-Thin';
 const double kFontHeightMedium = 14.0;
 const double kFontHeightSmall = 12.0;
 const double kFontHeightLarge = 20.0;
 const int kFontColor = 0xFFFFFFFF;
+const int kDarkFontColor = kDarkestBlue;
 const int kIconColor = 0xFFFF0000;
 const double kSocialMediaIconHeight = 50.0;
 const double kSocialMediaIconWidth = 135.0;
