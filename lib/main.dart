@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_time_wind_three/screens/data_input_screen.dart';
 import 'package:real_time_wind_three/screens/results_screen.dart';
+import 'package:real_time_wind_three/screens/settings_screen.dart';
 
 void main() {
   runApp(const BoatingRealTimeWind());
@@ -22,6 +23,7 @@ class BoatingRealTimeWind extends StatelessWidget {
       home: DataInputScreen(),
       routes: {
         ResultsScreen.id: (context) => const ResultsScreen(),
+        SettingsScreen.id: (context) => SettingsScreen(),
       },
     );
   }

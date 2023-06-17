@@ -5,10 +5,10 @@ import 'package:real_time_wind_three/models/longitude_model.dart';
 import 'package:real_time_wind_three/models/temp_class.dart';
 import 'package:real_time_wind_three/models/weather_data_list.dart';
 import 'package:real_time_wind_three/models/wind_speed_class.dart';
-
-import '../models/weather_model.dart';
+import 'package:real_time_wind_three/screens/settings_screen.dart';
 import '../services/constants.dart';
 import '../services/network_services.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ResultsScreen extends StatefulWidget {
   static String id = 'results_screen';
@@ -22,7 +22,6 @@ class _ResultsScreenState extends State<ResultsScreen> {
   WeatherDataList weatherDataList = WeatherDataList();
   LatitudeDataValue latitudeDataValue = LatitudeDataValue();
   LongitudeDataValue longitudeDataValue = LongitudeDataValue();
-
   TemperatureSelection temperatureSelection = TemperatureSelection();
   WindSpeedSelection windSpeedSelection = WindSpeedSelection();
   static int resetResultsScreenCount = 0;
@@ -36,7 +35,6 @@ class _ResultsScreenState extends State<ResultsScreen> {
     resetWidgetCount = resetWidgetCountValue;
     final tempChoiceValue = tempSelectionValue;
     final speedChoiceValue = speedSelectionValue;
-    print('resetWidgetCount = $resetWidgetCount and resetResultsScreenCount = $resetResultsScreenCount');
 
     if (tempChoiceValue == 0) {
       unitsChoice = 'imperial';
@@ -47,12 +45,14 @@ class _ResultsScreenState extends State<ResultsScreen> {
     /// Get location data
     ///&units=metric change the temperature metric
     if (resetWidgetCount == 1 && resetResultsScreenCount < 1) {
-      print('inside of if statement and at the entrance: resetWidgetCount = $resetWidgetCount and resetResultsScreenCount = $resetResultsScreenCount');
+      print('Inside of if statement for reading the API again');
       NetworkData networkHelper = NetworkData('$weatherApiUrl?lat=$lat&lon=$lon&appid=$apiKey&units=$unitsChoice');
       var tempApiValue = ('$weatherApiUrl?lat=$lat&lon=$lon&appid=$apiKey&units=$unitsChoice');
       print('This is the API call: $tempApiValue');
       var weatherData = await networkHelper.getData();
       print('This is the weatherData in the WeatherModel Class: $weatherData');
+
+      /// set the variables
       weatherDataList.setCityWeatherDataValue = weatherData['name'];
       weatherDataList.setCountryWeatherDataValue = weatherData['sys']['country'];
       weatherDataList.setWindSpeedWeatherDataValue = weatherData['wind']['speed'];
@@ -60,39 +60,32 @@ class _ResultsScreenState extends State<ResultsScreen> {
       weatherDataList.setWindDirectionWeatherDataValue = weatherData['wind']['deg'];
       weatherDataList.setTemperatureWeatherDataValue = weatherData['main']['temp'];
       weatherDataList.setPressureWeatherDataValue = weatherData['main']['pressure'];
+
+      /// build the list
       setState(() {
-        weatherResultsList.clear();
+        weatherResultsList.clear(); // this allows the user to go back to the input screen, enter new data, and get new results
         weatherResultsList.add('Latitude: ${lat}');
-        print('getLatitudeWeatherDataValue ${lat}');
         weatherResultsList.add('Longitude: ${lon}');
-        print('getLongitudeWeatherDataValue ${lon}');
         weatherResultsList.add('City: ${weatherDataList.getCityWeatherDataValue}');
-        print('getCityWeatherDataValue ${weatherDataList.getCityWeatherDataValue}');
         weatherResultsList.add('Country: ${weatherDataList.getCountryWeatherDataValue}');
-        print('getCountryWeatherDataValue ${weatherDataList.getCountryWeatherDataValue}');
 
         /// wind speed
         if (speedChoiceValue == 0 && tempChoiceValue == 0) {
           weatherResultsList.add('Wind Speed: ${weatherDataList.getWindSpeedWeatherDataValue} mph');
-          print(' if (speedChoiceValue == 0 && tempChoiceValue == 0) ${weatherDataList.getWindSpeedWeatherDataValue}');
         }
         if (speedChoiceValue == 0 && tempChoiceValue == 1) {
-          weatherResultsList.add('Wind Speed: ${weatherDataList.getWindSpeedWeatherDataValue} meter/sec');
-          print(' if (speedChoiceValue == 0 && tempChoiceValue == 1) ${weatherDataList.getWindSpeedWeatherDataValue}');
+          weatherResultsList.add('Wind Speed: ${weatherDataList.getWindSpeedWeatherDataValue} m/s');
         }
+
         if (speedChoiceValue == 1 && tempChoiceValue == 0) {
-          double tempSpeedKnots = weatherDataList.getWindSpeedWeatherDataValue;
-          print('tempSpeedKnots = $tempSpeedKnots');
+          double tempSpeedKnots = weatherDataList.getWindSpeedWeatherDataValue ?? 0;
           tempSpeedKnots = tempSpeedKnots * 0.868976;
-          print('tempSpeedKnots * 0.868976 = $tempSpeedKnots');
           weatherResultsList.add('Wind Speed: ${tempSpeedKnots.toStringAsFixed(1)} knots');
-          print(' if (speedChoiceValue == 1 && tempChoiceValue == 0) ${tempSpeedKnots.toStringAsFixed(1)}');
         }
         if (speedChoiceValue == 1 && tempChoiceValue == 1) {
-          double tempMeterPerSecond = weatherDataList.getWindSpeedWeatherDataValue;
+          double tempMeterPerSecond = weatherDataList.getWindSpeedWeatherDataValue ?? 0;
           tempMeterPerSecond = tempMeterPerSecond * 1.943844;
           weatherResultsList.add('Wind Speed: ${tempMeterPerSecond.toStringAsFixed(1)} knots');
-          print(' if (speedChoiceValue == 1 && tempChoiceValue == 1) ${tempMeterPerSecond.toStringAsFixed(1)}');
         }
 
         /// wind gusts
@@ -103,12 +96,12 @@ class _ResultsScreenState extends State<ResultsScreen> {
           weatherResultsList.add('Wind Gust: ${weatherDataList.getWindGustWeatherDataValue} meter/sec');
         }
         if (speedChoiceValue == 1 && tempChoiceValue == 0) {
-          double tempGustSpeedKnots = weatherDataList.getWindGustWeatherDataValue;
+          double tempGustSpeedKnots = weatherDataList.getWindGustWeatherDataValue ?? 0;
           tempGustSpeedKnots = tempGustSpeedKnots * 0.868976;
           weatherResultsList.add('Wind Gust: ${tempGustSpeedKnots.toStringAsFixed(1)} knots');
         }
         if (speedChoiceValue == 1 && tempChoiceValue == 1) {
-          double tempGustMeterPerSecond = weatherDataList.getWindGustWeatherDataValue;
+          double tempGustMeterPerSecond = weatherDataList.getWindGustWeatherDataValue ?? 0;
           tempGustMeterPerSecond = tempGustMeterPerSecond * 1.943844;
           weatherResultsList.add('Wind Speed: ${tempGustMeterPerSecond.toStringAsFixed(1)} knots');
         }
@@ -174,12 +167,13 @@ class _ResultsScreenState extends State<ResultsScreen> {
           weatherResultsList.add('Temperature: ${weatherDataList.getTemperatureWeatherDataValue} \u2103');
         }
         weatherResultsList.add('Pressure: ${weatherDataList.getPressureWeatherDataValue} millibars');
-        print('getPressureWeatherDataValue ${weatherDataList.getPressureWeatherDataValue}');
       });
+
+      /// adjust counts to avoid the widget rebuilding multiple times
+      /// Would like to figure out a different method but not sure how yet
       resetResultsScreenCount++;
       resetWidgetCount = 0;
     }
-    print('at the exit of the getLocationWeather: resetWidgetCount = $resetWidgetCount and resetResultsScreenCount = $resetResultsScreenCount');
   } //getLocationWeather
 
   @override
@@ -192,88 +186,116 @@ class _ResultsScreenState extends State<ResultsScreen> {
   @override
   Widget build(BuildContext context) {
     final inputLocationAndSelectionValues = ModalRoute.of(context)?.settings.arguments as LocationArguments;
+
+    /// extract the data from the data input screen passed via that LocationArguments
     final lat = inputLocationAndSelectionValues.latitudeLocation;
     final lon = inputLocationAndSelectionValues.longitudeLocation;
     final tempSelectionValue = inputLocationAndSelectionValues.tempSelectionValue;
     final speedSelectionValue = inputLocationAndSelectionValues.speedSelectionValue;
     int resetWidgetCount = inputLocationAndSelectionValues.resetWidgetCount;
-    print('This is the LocationArguments data passed from input screen lat: $lat');
-    print('This is the LocationArguments data passed from input screen lon: $lon');
+
+    /// get the openweathermap data
     getLocationWeather(lat, lon, resetWidgetCount, tempSelectionValue, speedSelectionValue);
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(kLightestBlue),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        backgroundColor: const Color(kDarkestBlue),
         title: const FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
             'Real-Time Wind Report',
-            style: TextStyle(
-              fontFamily: kFontTypeForApp,
-              color: Color(kDarkFontColor),
-              fontSize: kAppBarFontHeight,
-              fontWeight: FontWeight.bold,
-              overflow: TextOverflow.ellipsis,
+            style: kTextStyleForAppBar,
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, SettingsScreen.id);
+            },
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/OceanBackgroundWithOutBackgroundImage.png'),
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/OceanBackgroundWithOutBackgroundImage.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: ListView.separated(
-          itemCount: weatherResultsList.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: EdgeInsets.all(8.0),
-                decoration: kStyleBoxDecoration,
-                height: kContainerHeight,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    weatherResultsList[index].toString(),
-                    style: const TextStyle(color: Color(kFontColor), fontFamily: kFontTypeForApp, fontSize: kContainerFontHeight, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
+          child: Column(
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(top: 8),
+                child: Center(
+                  child: SizedBox(
+                    width: kWidthElevatedButton,
+                    height: kHeightElevatedButton,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              return const Color(kLightestBlue);
+                            }
+                            return const Color(kDarkBlue);
+                          },
+                        ),
+                      ),
+                      onPressed: () {
+                        resetResultsScreenCount = 0;
+                        getLocationWeather(lat, lon, 1, tempSelectionValue, speedSelectionValue);
+                      },
+                      child: Text(
+                        'Update Data',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, fontFamily: kFontTypeForApp, color: Color(kWhiteHexValue)),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return Divider(color: Colors.black);
-          },
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.separated(
+                    itemCount: weatherResultsList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          padding: EdgeInsets.all(8.0),
+                          decoration: kStyleBoxDecoration,
+                          height: kContainerHeight,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              weatherResultsList[index].toString(),
+                              style: const TextStyle(
+                                  color: Color(kFontColor), fontFamily: kFontTypeForApp, fontSize: kContainerFontHeight, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      );
+                    }, //separatorBuilder: (BuildContext context, int index) => const Divider(height: 25.0,),
+                    separatorBuilder: (context, int index) => const Divider(
+                      height: 10.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   } //Widget
 } //class
-/*
-  body: ListView.separated(
-        padding: const EdgeInsets.all(8),
-        itemCount: rcDutySchedule.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            decoration: styleBoxDecoration,
-            height: kContainerHeight,
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  rcDutySchedule[index],
-                  style: const TextStyle(color: Color(kFontColor), fontFamily: kFontTypeForApp, fontSize: kContainerFontHeight, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) => const Divider(
-          height: 25.0,
-        ),
-      ),
- */
