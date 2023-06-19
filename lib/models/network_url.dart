@@ -1,5 +1,4 @@
 import 'package:url_launcher/url_launcher.dart';
-import '../services/constants.dart';
 
 class NetworkUrlClass {
   launchUrlMethod(String urlValue) async {

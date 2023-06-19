@@ -8,7 +8,6 @@ import 'package:real_time_wind_three/models/wind_speed_class.dart';
 import 'package:real_time_wind_three/screens/settings_screen.dart';
 import '../services/constants.dart';
 import '../services/network_services.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ResultsScreen extends StatefulWidget {
   static String id = 'results_screen';
@@ -64,8 +63,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
       /// build the list
       setState(() {
         weatherResultsList.clear(); // this allows the user to go back to the input screen, enter new data, and get new results
-        weatherResultsList.add('Latitude: ${lat}');
-        weatherResultsList.add('Longitude: ${lon}');
+        weatherResultsList.add('Latitude: $lat');
+        weatherResultsList.add('Longitude: $lon');
         weatherResultsList.add('City: ${weatherDataList.getCityWeatherDataValue}');
         weatherResultsList.add('Country: ${weatherDataList.getCountryWeatherDataValue}');
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show TargetPlatform;
 import 'package:real_time_wind_three/models/latitude_model.dart';
 import 'package:real_time_wind_three/models/location_arguments.dart';
 import 'package:real_time_wind_three/models/longitude_model.dart';
@@ -7,15 +6,14 @@ import 'package:real_time_wind_three/models/temp_class.dart';
 import 'package:real_time_wind_three/models/wind_speed_class.dart';
 import 'package:real_time_wind_three/screens/results_screen.dart';
 import 'package:real_time_wind_three/screens/settings_screen.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 import '../models/lat_input.dart';
 import '../models/lon_input.dart';
 import '../models/speed_select.dart';
 import '../models/temperature_select.dart';
 import '../services/constants.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DataInputScreen extends StatefulWidget {
+  static String id = 'data_input_screen';
   const DataInputScreen({super.key});
 
   @override
@@ -87,7 +85,7 @@ class _DataInputScreenState extends State<DataInputScreen> {
             padding: kEdgeInsetValue8484,
             child: ListView(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              children: [
+              children: <Widget>[
                 Column(
                   children: [
                     Padding(

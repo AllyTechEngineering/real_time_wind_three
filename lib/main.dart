@@ -20,10 +20,11 @@ class BoatingRealTimeWind extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: DataInputScreen(),
+      initialRoute: DataInputScreen.id,
       routes: {
+        DataInputScreen.id: (context) => const DataInputScreen(),
         ResultsScreen.id: (context) => const ResultsScreen(),
-        SettingsScreen.id: (context) => SettingsScreen(),
+        SettingsScreen.id: (context) => const SettingsScreen(),
       },
     );
   }

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:real_time_wind_three/models/network_url.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../services/constants.dart';
 
 class SettingsScreen extends StatefulWidget {
   static String id = 'settings_screen';
-  SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
