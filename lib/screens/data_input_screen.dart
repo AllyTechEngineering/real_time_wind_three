@@ -6,10 +6,10 @@ import 'package:real_time_wind_three/models/temp_class.dart';
 import 'package:real_time_wind_three/models/wind_speed_class.dart';
 import 'package:real_time_wind_three/screens/results_screen.dart';
 import 'package:real_time_wind_three/screens/settings_screen.dart';
-import '../models/lat_input.dart';
-import '../models/lon_input.dart';
-import '../models/speed_select.dart';
-import '../models/temperature_select.dart';
+import '../controllers/lat_input.dart';
+import '../controllers/lon_input.dart';
+import '../controllers/speed_select.dart';
+import '../controllers/temperature_select.dart';
 import '../services/constants.dart';
 
 class DataInputScreen extends StatefulWidget {
@@ -144,63 +144,197 @@ class _DataInputScreenState extends State<DataInputScreen> {
                               // List<String> tempList = [];
                               // tempList.add(latitudeTextInputValue.text);
                               // tempList.add(longitudeTextInputValue.text);
-                              Navigator.pushNamed(context, ResultsScreen.id,
-                                  arguments: LocationArguments(
-                                      // latitudeTextInputValue.text,
-                                      // longitudeTextInputValue.text,
-                                      '39.5668',
-                                      '-84.7446',
-                                      1,
-                                      temperatureSelection.getTempChoice,
-                                      windSpeedSelection.getWindSpeedChoice));
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.5668',
+                                    '-84.7446',
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Acton Lake'),
+                              );
                             },
                             child: const Text(
                               'Acton Lake',
+                              style: TextStyle(fontSize: 16.0),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Brookville Lake'),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.4403',
+                                    '-84.9997',
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Brookville Lake (Dam)'),
+                              );
+                            },
+                            child: const Text(
+                              'Brookville Lake (Dam)',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Cowan Lake'),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.3864',
+                                    '-83.9030',
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Cowan Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'Cowan Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('East Fork Lake'),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.5109',
+                                    '-84.0141',
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Caesar Creek Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'Caesar Creek Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Rocky Fork Lake'),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.0226',
+                                    '-84.1502',
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'East Fork Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'East Fork Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('East Fork Lake'),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Ceaser Creek Lake'),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '38.08162188921891',
+                                    '-83.4890519592167',
+                                    //38.08162188921891, -83.4890519592167
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Cave Run Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'Cave Run Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     Padding(
@@ -228,16 +362,17 @@ class _DataInputScreenState extends State<DataInputScreen> {
                           child: ElevatedButton(
                             style: kStyleElevatedButtonOne,
                             onPressed: () {
-                              // List<String> tempList = [];
-                              // tempList.add(latitudeTextInputValue.text);
-                              // tempList.add(longitudeTextInputValue.text);
-                              Navigator.pushNamed(context, ResultsScreen.id,
-                                  arguments: LocationArguments(
-                                      latitudeTextInputValue.text,
-                                      longitudeTextInputValue.text,
-                                      1,
-                                      temperatureSelection.getTempChoice,
-                                      windSpeedSelection.getWindSpeedChoice));
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    latitudeTextInputValue.text,
+                                    longitudeTextInputValue.text,
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Manually Enter Lat & Lon Results'),
+                              );
                             },
                             child: const Text(
                               'Manually Enter Lat & Lon Results',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_time_wind_three/models/network_url.dart';
+import 'package:real_time_wind_three/services/network_url.dart';
 import '../services/constants.dart';
 
 class SettingsScreen extends StatefulWidget {

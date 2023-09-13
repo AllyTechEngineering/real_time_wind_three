@@ -251,17 +251,20 @@ class _ResultsScreenState extends State<ResultsScreen> {
         ModalRoute.of(context)?.settings.arguments as LocationArguments;
 
     /// extract the data from the data input screen passed via that LocationArguments
-    final lat = inputLocationAndSelectionValues.latitudeLocation;
-    final lon = inputLocationAndSelectionValues.longitudeLocation;
-    final tempSelectionValue =
+    /// data passed as a list and this is the order 0,1,2,3,4
+    final lat = inputLocationAndSelectionValues.latitudeLocation; // 0
+    final lon = inputLocationAndSelectionValues.longitudeLocation; // 1
+    int resetWidgetCount =
+        inputLocationAndSelectionValues.resetWidgetCount; // 2
+    final tempSelectionValue = // 3
         inputLocationAndSelectionValues.tempSelectionValue;
-    final speedSelectionValue =
+    final speedSelectionValue = // 4
         inputLocationAndSelectionValues.speedSelectionValue;
-    int resetWidgetCount = inputLocationAndSelectionValues.resetWidgetCount;
+    final lakeName = inputLocationAndSelectionValues.lakeNameValue;
 
     /// get the openweathermap data
-    getLocationWeather(
-        lat, lon, resetWidgetCount, tempSelectionValue, speedSelectionValue);
+    getLocationWeather(lat, lon, resetWidgetCount, tempSelectionValue,
+        speedSelectionValue); // list order 0,1,2,3,4
 
     return Scaffold(
       appBar: AppBar(
@@ -270,10 +273,10 @@ class _ResultsScreenState extends State<ResultsScreen> {
           color: Colors.white,
         ),
         backgroundColor: const Color(kDarkestBlue),
-        title: const FittedBox(
+        title: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'Real-Time Wind Report',
+            lakeName,
             style: kTextStyleForAppBar,
           ),
         ),
