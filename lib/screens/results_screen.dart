@@ -77,7 +77,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
         weatherResultsList.add('Latitude: $lat');
         weatherResultsList.add('Longitude: $lon');
         weatherResultsList
-            .add('City: ${weatherDataList.getCityWeatherDataValue}');
+            .add('Nearby City: ${weatherDataList.getCityWeatherDataValue}');
         weatherResultsList
             .add('Country: ${weatherDataList.getCountryWeatherDataValue}');
 

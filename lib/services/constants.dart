@@ -18,38 +18,47 @@ const BoxDecoration kStyleBoxDecoration = (BoxDecoration(
   ],
   color: Color(kDarkestBlue),
   borderRadius: BorderRadius.only(
-    topRight: Radius.circular(20.0),
+    topRight: Radius.circular(10.0),
     bottomRight: Radius.circular(0.0),
     topLeft: Radius.circular(0.0),
-    bottomLeft: Radius.circular(20.0),
+    bottomLeft: Radius.circular(10.0),
   ),
 ));
 final ButtonStyle kStyleElevatedButtonOne = ElevatedButton.styleFrom(
-  side: const BorderSide(width: 2, color: Color(kLightestBlue), style: BorderStyle.solid),
+  side: const BorderSide(
+      width: 2, color: Color(kLightestBlue), style: BorderStyle.solid),
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(kButtonRadiusValue),
   ),
   backgroundColor: const Color(kDarkBlue),
   padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 0.0, bottom: 0.0),
   elevation: 25.0,
-  shadowColor: const Color(kLightestBlue),
-  textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: kFontTypeForApp, color: Color(kWhiteHexValue)),
+  shadowColor: const Color(kDarkestBlue),
+  textStyle: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontFamily: kFontTypeForApp,
+      color: Color(kWhiteHexValue)),
 );
 final ButtonStyle kStyleElevatedButtonTwo = ElevatedButton.styleFrom(
   // side: const BorderSide(width: 2, color: Color(kLightestBlue), style: BorderStyle.solid),
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
-      topRight: Radius.circular(20.0),
+      topRight: Radius.circular(10.0),
       bottomRight: Radius.circular(0.0),
       topLeft: Radius.circular(0.0),
-      bottomLeft: Radius.circular(20.0),
+      bottomLeft: Radius.circular(10.0),
     ),
   ),
   backgroundColor: const Color(kDarkBlue),
   padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 0.0, bottom: 0.0),
   elevation: 25.0,
-  shadowColor: const Color(kLightestBlue),
-  textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: kFontTypeForApp, color: Color(kWhiteHexValue)),
+  shadowColor: const Color(kDarkestBlue),
+  textStyle: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontFamily: kFontTypeForApp,
+      color: Color(kWhiteHexValue)),
 );
 final TextStyle kTextStyle = TextStyle(fontSize: 16.sp);
 const TextStyle kTextStyleForAppBar = TextStyle(
@@ -61,9 +70,21 @@ const TextStyle kTextStyleForAppBar = TextStyle(
 );
 EdgeInsets kEdgeInsetValue8480 = const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 0.0);
 EdgeInsets kEdgeInsetValue8484 = const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0);
-const TextStyle kTextStyleExplainText = TextStyle(fontFamily: kFontTypeForApp, fontWeight: FontWeight.bold, fontSize: 20, color: Color(kDarkestBlue));
-const TextStyle kTextStyleSettings = TextStyle(color: Color(kFontColor), fontFamily: kFontTypeForApp, fontSize: kFontSizeValue, fontWeight: FontWeight.bold);
-const TextStyle kTextStyleFieldDataInput = TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold, fontStyle: FontStyle.normal);
+const TextStyle kTextStyleExplainText = TextStyle(
+    fontFamily: kFontTypeForApp,
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
+    color: Color(kDarkestBlue));
+const TextStyle kTextStyleSettings = TextStyle(
+    color: Color(kFontColor),
+    fontFamily: kFontTypeForApp,
+    fontSize: kFontSizeValue,
+    fontWeight: FontWeight.bold);
+const TextStyle kTextStyleFieldDataInput = TextStyle(
+    color: Colors.white,
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal);
 const double kContainerHeight = 75.0;
 const double kContainerFontHeight = 20.0;
 const double kAppBarFontHeight = 20.0;
@@ -78,11 +99,11 @@ const double kSocialMediaIconHeight = 50.0;
 const double kSocialMediaIconWidth = 135.0;
 const double kSocialMediaFontHeight = 10.0;
 const double kIconHeightValue = 60.0;
-const double kButtonRadiusValue = 20.0;
+const double kButtonRadiusValue = 10.0;
 const double kButtonRowSpacingTop = 1.0;
 const double kButtonRowSpacingBottom = 20.0;
-const double kWidthElevatedButton = 200.0;
-const double kHeightElevatedButton = 65.0;
+const double kWidthElevatedButton = 250.0;
+const double kHeightElevatedButton = 45.0;
 const double kWidthResultsElevatedButton = 200.0;
 const double kHeightResultsElevatedButton = 75.0;
 const double kLogoHeightValue = 200.0;
@@ -100,7 +121,8 @@ const double kSettingsTextContainerHeight = 200.0;
 const double kTextContainerWidth = 500.0;
 const double kTextContainerFontHeight = 18.0;
 const String kTitleText = 'Real Time Wind Report';
-const String aboutUs = 'What we do: exceptional custom Flutter/Dart cross platform app development.';
+const String aboutUs =
+    'What we do: exceptional custom Flutter/Dart cross platform app development.';
 const String companyName = 'Company name: Allytech LLC';
 const String emailContact = 'Email: btaylor@allytechllc.com';
 const String kCompanyWebsite = 'https://allytechllc.com/';

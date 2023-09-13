@@ -286,6 +286,76 @@ class _DataInputScreenState extends State<DataInputScreen> {
                                 arguments: LocationArguments(
                                     // latitudeTextInputValue.text,
                                     // longitudeTextInputValue.text,
+                                    '39.968617428992864',
+                                    '-83.73729374148644',
+                                    //39.968617428992864, -83.73729374148644
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Clarence J Brown Reservoir'),
+                              );
+                            },
+                            child: const Text(
+                              'Clarence J Brown Reservoir',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '39.61577722293571',
+                                    '-83.24271135698187',
+                                    //39.61577722293571, -83.24271135698187
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Deer Creek Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'Dear Creek Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
                                     '39.0226',
                                     '-84.1502',
                                     1,
@@ -320,19 +390,102 @@ class _DataInputScreenState extends State<DataInputScreen> {
                                 arguments: LocationArguments(
                                     // latitudeTextInputValue.text,
                                     // longitudeTextInputValue.text,
+                                    '39.27059778912283',
+                                    '-83.39894513162949',
+                                    //39.27059778912283, -83.39894513162949
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Paint Creek Lake'),
+                              );
+                            },
+                            child: const Text(
+                              'Paint Creek Lake',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
                                     '38.08162188921891',
                                     '-83.4890519592167',
                                     //38.08162188921891, -83.4890519592167
                                     1,
                                     temperatureSelection.getTempChoice,
                                     windSpeedSelection.getWindSpeedChoice,
-                                    'Cave Run Lake'),
+                                    'Cave Run Lake KY'),
                               );
                             },
                             child: const Text(
-                              'Cave Run Lake',
+                              'Cave Run Lake KY',
                               style: TextStyle(fontSize: 16.0),
                             ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(
+                                context,
+                                ResultsScreen.id,
+                                arguments: LocationArguments(
+                                    // latitudeTextInputValue.text,
+                                    // longitudeTextInputValue.text,
+                                    '38.00803516569071',
+                                    '-85.26233661851447',
+                                    //38.00803516569071, -85.26233661851447
+                                    1,
+                                    temperatureSelection.getTempChoice,
+                                    windSpeedSelection.getWindSpeedChoice,
+                                    'Taylorsville Lake KY'),
+                              );
+                            },
+                            child: const Text(
+                              'Taylorsville Lake KY',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: kEdgeInsetValue8480,
+                      child: const FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Center(
+                          child: Text(
+                            'For Other Lakes Enter Lat and Lon',
+                            softWrap: true,
+                            style: kTextStyleExplainText,
                           ),
                         ),
                       ),
@@ -371,11 +524,11 @@ class _DataInputScreenState extends State<DataInputScreen> {
                                     1,
                                     temperatureSelection.getTempChoice,
                                     windSpeedSelection.getWindSpeedChoice,
-                                    'Manually Enter Lat & Lon Results'),
+                                    'Manually Entered Lat/Lon Results'),
                               );
                             },
                             child: const Text(
-                              'Manually Enter Lat & Lon Results',
+                              'Press for Lat & Lon Results',
                               style: TextStyle(
                                 fontSize: 10.0,
                               ),
