@@ -92,9 +92,9 @@ class WeatherDataList {
     return temperatureWeatherDataValue;
   } //get
 
-  set setTemperatureWeatherDataValue(dynamic TemperatureValue) {
+  set setTemperatureWeatherDataValue(dynamic temperatureValue) {
     // print('This is setTemperatureWeatherDataValue: $temperatureWeatherDataValue');
-    temperatureWeatherDataValue = TemperatureValue;
+    temperatureWeatherDataValue = temperatureValue;
   } //set
 
   /// Pressure

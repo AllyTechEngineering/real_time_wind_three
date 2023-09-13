@@ -21,7 +21,7 @@ class LatInputTextFieldClass extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(kDarkBlue),
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           Icons.pin_drop,
           size: 40.0,
         ),

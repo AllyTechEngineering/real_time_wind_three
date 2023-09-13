@@ -21,8 +21,8 @@ class LonIInputTextFieldClass extends StatelessWidget {
       textAlign: TextAlign.left,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(kDarkBlue),
-        prefixIcon: Icon(
+        fillColor: const Color(kDarkBlue),
+        prefixIcon: const Icon(
           Icons.pin_drop,
           size: 40.0,
         ),

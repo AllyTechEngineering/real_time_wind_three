@@ -16,6 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
@@ -32,7 +33,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/OceanBackgroundWithOutBackgroundImage.png'),
+              image: AssetImage(
+                  'images/OceanBackgroundWithOutBackgroundImage.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -118,7 +120,7 @@ class SettingsScreenContainerDecoration extends StatelessWidget {
       height: kContainerHeight,
       child: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             textValue,
             textAlign: TextAlign.left,

@@ -20,7 +20,7 @@ class TemperatureSelectToggleSwitch extends StatelessWidget {
       minHeight: 30.0,
       fontSize: 20.0,
       initialLabelIndex: 0,
-      activeBgColor: [Color(kDarkBlue)],
+      activeBgColor: const [Color(kDarkBlue)],
       activeFgColor: Colors.white,
       inactiveBgColor: Colors.grey,
       inactiveFgColor: Colors.grey[900],

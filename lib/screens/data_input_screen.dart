@@ -54,6 +54,7 @@ class _DataInputScreenState extends State<DataInputScreen> {
       home: Scaffold(
         backgroundColor: const Color(kScaffoldColor),
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: const Color(kDarkestBlue),
           title: const FittedBox(
             fit: BoxFit.scaleDown,
@@ -77,7 +78,8 @@ class _DataInputScreenState extends State<DataInputScreen> {
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/OceanBackgroundWithOutBackgroundImage.png'),
+              image: AssetImage(
+                  'images/OceanBackgroundWithOutBackgroundImage.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -94,45 +96,122 @@ class _DataInputScreenState extends State<DataInputScreen> {
                         fit: BoxFit.scaleDown,
                         child: Center(
                           child: Text(
-                            'Enter Lat & Lon of The Location',
+                            'Boating Lakes in the Tri-State Area',
                             softWrap: true,
                             style: kTextStyleExplainText,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
-                      child: LatInputTextFieldClass(latitudeTextInputValue: latitudeTextInputValue),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
-                      child: LonIInputTextFieldClass(longitudeTextInputValue: longitudeTextInputValue),
-                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
                             child: Column(
                               children: [
-                                TemperatureSelectToggleSwitch(temperatureSelection: temperatureSelection),
+                                TemperatureSelectToggleSwitch(
+                                    temperatureSelection: temperatureSelection),
                               ],
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
+                            padding:
+                                const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
                             child: Column(
                               children: [
-                                SpeedSelectToggleSwitch(windSpeedSelection: windSpeedSelection),
+                                SpeedSelectToggleSwitch(
+                                    windSpeedSelection: windSpeedSelection),
                               ],
                             ),
                           ),
                         ),
                       ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 10.0),
+                      child: Center(
+                        child: SizedBox(
+                          width: kWidthElevatedButton,
+                          height: kHeightElevatedButton,
+                          child: ElevatedButton(
+                            style: kStyleElevatedButtonOne,
+                            onPressed: () {
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
+                              Navigator.pushNamed(context, ResultsScreen.id,
+                                  arguments: LocationArguments(
+                                      // latitudeTextInputValue.text,
+                                      // longitudeTextInputValue.text,
+                                      '39.5668',
+                                      '-84.7446',
+                                      1,
+                                      temperatureSelection.getTempChoice,
+                                      windSpeedSelection.getWindSpeedChoice));
+                            },
+                            child: const Text(
+                              'Acton Lake',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Brookville Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Cowan Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('East Fork Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Rocky Fork Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('East Fork Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Ceaser Creek Lake'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
+                      child: LatInputTextFieldClass(
+                          latitudeTextInputValue: latitudeTextInputValue),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 0.0),
+                      child: LonIInputTextFieldClass(
+                          longitudeTextInputValue: longitudeTextInputValue),
                     ),
                   ],
                 ),
@@ -149,48 +228,22 @@ class _DataInputScreenState extends State<DataInputScreen> {
                           child: ElevatedButton(
                             style: kStyleElevatedButtonOne,
                             onPressed: () {
-                              List<String> tempList = [];
-                              tempList.add(latitudeTextInputValue.text);
-                              tempList.add(longitudeTextInputValue.text);
+                              // List<String> tempList = [];
+                              // tempList.add(latitudeTextInputValue.text);
+                              // tempList.add(longitudeTextInputValue.text);
                               Navigator.pushNamed(context, ResultsScreen.id,
-                                  arguments: LocationArguments(latitudeTextInputValue.text, longitudeTextInputValue.text, 1, temperatureSelection.getTempChoice,
+                                  arguments: LocationArguments(
+                                      latitudeTextInputValue.text,
+                                      longitudeTextInputValue.text,
+                                      1,
+                                      temperatureSelection.getTempChoice,
                                       windSpeedSelection.getWindSpeedChoice));
                             },
                             child: const Text(
-                              'Get Results',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0, 20.0, 8.0, 0.0),
-                      child: SizedBox(
-                        height: 250,
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Image.asset(
-                            'images/sailBoatBlackAndWhite.png',
-                            width: kLogoWidthValue,
-                            height: kLogoHeightValue,
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(8.0, 20.0, 8.0, 0.0),
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Center(
-                          child: Text(
-                            kCopyRightText,
-                            softWrap: true,
-                            style: TextStyle(
-                              fontFamily: kFontTypeForApp,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Color(kDarkestBlue),
+                              'Manually Enter Lat & Lon Results',
+                              style: TextStyle(
+                                fontSize: 10.0,
+                              ),
                             ),
                           ),
                         ),
