@@ -51,8 +51,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
     if (resetWidgetCount == 1 && resetResultsScreenCount < 1) {
       NetworkData networkHelper = NetworkData(
           '$weatherApiUrl?lat=$lat&lon=$lon&appid=$apiKey&units=$unitsChoice');
-      // var tempApiValue = ('$weatherApiUrl?lat=$lat&lon=$lon&appid=$apiKey&units=$unitsChoice');
-      // print('This is the API call: $tempApiValue');
+      var tempApiValue =
+          ('$weatherApiUrl?lat=$lat&lon=$lon&appid=$apiKey&units=$unitsChoice');
+      print('This is the API call: $tempApiValue');
       var weatherData = await networkHelper.getData();
       // print('This is the weatherData in the WeatherModel Class: $weatherData');
 

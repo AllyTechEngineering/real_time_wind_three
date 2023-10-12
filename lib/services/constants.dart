@@ -68,12 +68,19 @@ const TextStyle kTextStyleForAppBar = TextStyle(
   fontWeight: FontWeight.bold,
   overflow: TextOverflow.ellipsis,
 );
+EdgeInsets kEdgeInsetContainerValue8_2_8_2 =
+    const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0);
 EdgeInsets kEdgeInsetValue8480 = const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 0.0);
 EdgeInsets kEdgeInsetValue8484 = const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0);
 const TextStyle kTextStyleExplainText = TextStyle(
     fontFamily: kFontTypeForApp,
     fontWeight: FontWeight.bold,
-    fontSize: 20,
+    fontSize: 16,
+    color: Color(kDarkestBlue));
+const TextStyle kTextStyleDataSettingsText = TextStyle(
+    fontFamily: kFontTypeForApp,
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
     color: Color(kDarkestBlue));
 const TextStyle kTextStyleSettings = TextStyle(
     color: Color(kFontColor),
@@ -86,12 +93,12 @@ const TextStyle kTextStyleFieldDataInput = TextStyle(
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal);
 const double kContainerHeight = 75.0;
-const double kContainerFontHeight = 20.0;
+const double kContainerFontHeight = 16.0;
 const double kAppBarFontHeight = 20.0;
 const String kFontTypeForApp = 'Roboto-Thin';
-const double kFontHeightMedium = 14.0;
-const double kFontHeightSmall = 12.0;
-const double kFontHeightLarge = 20.0;
+const double kFontHeightMedium = 10.0;
+const double kFontHeightSmall = 8.0;
+const double kFontHeightLarge = 12.0;
 const int kFontColor = 0xFFFFFFFF;
 const int kDarkFontColor = kDarkestBlue;
 const int kIconColor = 0xFFFF0000;
@@ -102,8 +109,8 @@ const double kIconHeightValue = 60.0;
 const double kButtonRadiusValue = 10.0;
 const double kButtonRowSpacingTop = 1.0;
 const double kButtonRowSpacingBottom = 20.0;
-const double kWidthElevatedButton = 250.0;
-const double kHeightElevatedButton = 45.0;
+const double kWidthElevatedButton = 300.0;
+const double kHeightElevatedButton = 50.0;
 const double kWidthResultsElevatedButton = 200.0;
 const double kHeightResultsElevatedButton = 75.0;
 const double kLogoHeightValue = 200.0;
@@ -133,3 +140,17 @@ const String textAboutUs = 'About Us';
 const String textClickForMoreInfo = 'Click for More Information!';
 const String clickToContactUs = 'Click to Contact Us!';
 const String privacy = 'Allytech LLC 2023 \u00A9';
+const List<String> kLakeNameDetailList = [
+  'Acton Lake OH',
+  '625 Acres, No Wake',
+  '39.5723',
+  '-84.7480',
+  'Cowan Lake OH',
+  '1,075 Acres, 10HP Limit',
+  '39.3864',
+  '-83.9035',
+  'St. Marys Lake OH',
+  '13,500 Acres, NO HP or Speed Limit*',
+  '40.5252',
+  '-84.5010'
+];

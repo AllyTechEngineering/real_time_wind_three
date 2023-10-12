@@ -14,7 +14,7 @@ class LonIInputTextFieldClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       style: kTextStyleFieldDataInput,
-      autofocus: true,
+      autofocus: false,
       keyboardType: TextInputType.text,
       showCursor: true,
       controller: longitudeTextInputValue,
@@ -29,7 +29,11 @@ class LonIInputTextFieldClass extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         hintText: 'Enter Lon in ( - ) Dec Degree:',
-        hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontStyle: FontStyle.italic, fontSize: 14),
+        hintStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.normal,
+            fontStyle: FontStyle.italic,
+            fontSize: 14),
       ),
     );
   }
